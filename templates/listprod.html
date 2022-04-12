@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="/home"><img src= {{ url_for('static', filename = 'logo.jpg') }} width="50" height="50" alt="previous" title="Previous" border="0"></a>	<br><br>
+
+<table border="1">
+			<thead>
+				<th>Product ID </th>	<th>Product Name</th> <th>Product Price</th>
+				<th><a href="/qty/sort/">Product Qty</a></th>
+				<th>
+					Product Category
+				</th><th>Product Vendor</th><th>Actions</th>
+			</thead>
+
+			<tbody>
+					{% for prod in products %}
+						<tr>
+							<td>{{prod.id}}</td>
+							<td>{{prod.name}}</td>
+							<td>{{prod.price}}</td>
+							<td>{{prod.qty}}</td>
+							<td>{{prod.category}}</td>
+							<td>{{prod.vendor}}</td>
+							<td>
+								<a href="/edit/{{prod.id}}">EDIT</a>
+								<a href="/delete/{{prod.id}}">DELETE</a>
+							</td>
+						</tr>
+					{% endfor %}
+			</tbody>
+
+	</table>
+
+</body>
+</html>
